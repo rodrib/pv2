@@ -136,3 +136,60 @@ plt.ylabel('Variables')
 
 # Mostrar el gráfico
 st.pyplot(plt.gcf())  # Pasar la figura actual a st.pyplot()
+
+
+# URL de la API para el modelo de recurrencia del cáncer
+url_recidiva = "http://localhost:8000/api/recidiva"
+
+# URL de la API para el modelo de diagnóstico del paciente
+url_dx1 = "http://localhost:8000/api/dx1"
+
+# Botón para hacer la predicción de recurrencia del cáncer
+if st.button("Predecir Recurrencia del Cáncer"):
+    # Realizar solicitud HTTP a la API
+    response_recidiva = requests.get(url_recidiva)
+    
+    # Verificar si la solicitud fue exitosa
+    if response_recidiva.status_code == 200:
+        data_recidiva = response_recidiva.json()
+        st.write("Informe de Recurrencia del Cáncer:")
+        st.write(data_recidiva["report"])
+        st.write("Precisión:", data_recidiva["accuracy"])
+    else:
+        st.error("Error al hacer la predicción de recurrencia del cáncer")
+
+# Botón para hacer la predicción del diagnóstico del paciente
+if st.button("Predecir Diagnóstico del Paciente"):
+    # Realizar solicitud HTTP a la API
+    response_dx1 = requests.get(url_dx1)
+    
+    # Verificar si la solicitud fue exitosa
+    if response_dx1.status_code == 200:
+        data_dx1 = response_dx1.json()
+        st.write("Informe de Diagnóstico del Paciente:")
+        st.write(data_dx1["report"])
+        st.write("Precisión:", data_dx1["accuracy"])
+    else:
+        st.error("Error al hacer la predicción del diagnóstico del paciente")
+
+
+#### Predicciones
+
+# Campos de entrada para que el usuario ingrese la edad y el grado
+edad_usuario = st.number_input("Ingrese la edad:", step=1)
+grado_usuario = st.number_input("Ingrese el grado:", step=1)
+
+# Botón para hacer la predicción
+if st.button("Hacer Predicción"):
+    # Realizar solicitud HTTP a la API con los datos ingresados por el usuario
+    url = "http://localhost:8000/api/prediccion"
+    parametros = {"edad": edad_usuario, "grado": grado_usuario}
+    response = requests.get(url, params=parametros)
+    
+    # Verificar si la solicitud fue exitosa
+    if response.status_code == 200:
+        resultado_prediccion = response.json()
+        st.write("Resultado de la Predicción:")
+        st.write(resultado_prediccion)
+    else:
+        st.error("Error al hacer la predicción")

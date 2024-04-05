@@ -27,6 +27,9 @@ df = obtener_datos_desde_backend()
 # Si se obtienen los datos correctamente, mostrarlos en la aplicación de Streamlit
 #if df is not None:
 #    st.write(df)
+# Título para el costo parcial
+st.title('Visualizacion de Datos')
+
 
 # Si se obtienen los datos correctamente, mostrarlos en la aplicación de Streamlit
 if df is not None:
@@ -42,6 +45,8 @@ import matplotlib.pyplot as plt
 
 # Definir las columnas permitidas
 columnas_permitidas = ['GRUPO', 'ETNIA', 'EDAD', 'DX1', 'nombre-genes', 'ID', 'Germline Classification']
+
+st.title('Graficos de algunas columnas')
 
 # Crear un widget de selección para que el usuario elija la columna
 columna_seleccionada = st.selectbox('Selecciona una columna:', columnas_permitidas)
@@ -77,7 +82,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
+st.title('Comparacion de datos')
 
 # Definir las columnas permitidas
 columnas_permitidas = ['GRUPO', 'ETNIA', 'EDAD', 'DX1', 'nombre-genes', 'ID', 'Germline Classification']
@@ -105,6 +110,8 @@ if columna_agrupacion_1 and columna_agrupacion_2:
     
     # Mostrar la tabla de conteo de valores
     st.write(valores_agrupados)
+
+st.title('Correlacion')
 
 import streamlit as st
 import pandas as pd
@@ -145,6 +152,8 @@ plt.ylabel('Variables')
 # Mostrar el gráfico
 st.pyplot(plt.gcf())  # Pasar la figura actual a st.pyplot()
 
+
+st.title('Modelos de IA')
 
 # URL de la API para el modelo de recurrencia del cáncer
 url_recidiva = "http://localhost:8000/api/recidiva"

@@ -8,7 +8,8 @@ import pandas as pd
 
 # Función para llamar a la API y obtener los datos del DataFrame
 def obtener_datos_desde_backend():
-    url = "http://localhost:8000/api/data"  # URL de la API de FastAPI
+    #url = "http://localhost:8000/api/data"  # URL de la API de FastAPI
+    url = "https://backpv2-18.onrender.com/api/data"  # URL de la API de FastAPI
     try:
         response = requests.get(url)  # Realizar solicitud GET a la API
         if response.status_code == 200:
@@ -156,10 +157,10 @@ st.pyplot(plt.gcf())  # Pasar la figura actual a st.pyplot()
 st.title('Modelos de IA')
 
 # URL de la API para el modelo de recurrencia del cáncer
-url_recidiva = "http://localhost:8000/api/recidiva"
+url_recidiva = "https://backpv2-18.onrender.com/api/recidiva"
 
 # URL de la API para el modelo de diagnóstico del paciente
-url_dx1 = "http://localhost:8000/api/dx1"
+url_dx1 = "https://backpv2-18.onrender.com/api/dx1"
 
 # Botón para hacer la predicción de recurrencia del cáncer
 if st.button("Predecir Recurrencia del Cáncer"):
@@ -199,7 +200,7 @@ grado_usuario = st.number_input("Ingrese el grado:", step=1)
 # Botón para hacer la predicción
 if st.button("Hacer Predicción"):
     # Realizar solicitud HTTP a la API con los datos ingresados por el usuario
-    url = "http://localhost:8000/api/prediccion"
+    url = "https://backpv2-18.onrender.com/api/prediccion"
     parametros = {"edad": edad_usuario, "grado": grado_usuario}
     response = requests.get(url, params=parametros)
     

@@ -25,8 +25,16 @@ def obtener_datos_desde_backend():
 df = obtener_datos_desde_backend()
 
 # Si se obtienen los datos correctamente, mostrarlos en la aplicación de Streamlit
+#if df is not None:
+#    st.write(df)
+
+# Si se obtienen los datos correctamente, mostrarlos en la aplicación de Streamlit
 if df is not None:
-    st.write(df)
+    # Filtrar las columnas que quieres mostrar
+    columnas_mostrar = [col for col in df.columns if col not in ['CODIGO', 'PAC']]
+    # Mostrar el DataFrame sin las columnas CODIGO y PAC
+    st.dataframe(df[columnas_mostrar])
+
 
 import streamlit as st
 import pandas as pd

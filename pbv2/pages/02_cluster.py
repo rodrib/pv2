@@ -1,11 +1,7 @@
 import streamlit as st
 import requests
 
-import streamlit as st
-import requests
 
-import streamlit as st
-import requests
 
 # Título y descripción de la aplicación Streamlit
 st.title("Cálculo de Correlación")

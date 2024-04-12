@@ -15,14 +15,19 @@ EDAD = st.slider("EDAD", min_value=0, max_value=100, step=1)
 GRADO1 = st.slider("GRADO1", min_value=1, max_value=3, step=1)
 HER21 = st.slider("HER21", min_value=0, max_value=1, step=1)
 
-# Realiza una solicitud HTTP POST al servidor FastAPI
-data = {"RECIDIVA": RECIDIVA, "DX1": DX1, "EDAD": EDAD, "GRADO1": GRADO1, "HER21": HER21}
-response = requests.post(API_URL, json=data)
+# Realiza una solicitud HTTP GET al servidor FastAPI con los datos como parámetros de consulta
+params = {
+    "RECIDIVA": RECIDIVA,
+    "DX1": DX1,
+    "EDAD": EDAD,
+    "GRADO1": GRADO1,
+    "HER21": HER21
+}
+response = requests.get(API_URL, params=params)
 
 # Verifica si la solicitud fue exitosa y muestra los resultados
 if response.status_code == 200:
     result = response.json()
     st.write("Cluster predicho:", result["cluster_predicho"])
-    st.write("Probabilidad:", result["probability"])  # Asegúrate de que este campo esté disponible en la respuesta del servidor FastAPI
 else:
     st.error("Error al realizar la predicción. Inténtalo de nuevo más tarde.")

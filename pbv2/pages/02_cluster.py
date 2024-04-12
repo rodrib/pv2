@@ -22,7 +22,7 @@ response = requests.post(API_URL, json=data)
 # Verifica si la solicitud fue exitosa y muestra los resultados
 if response.status_code == 200:
     result = response.json()
-    st.write("Cluster predicho:", result["cluster"])
-    st.write("Probabilidad:", result["probability"])
+    st.write("Cluster predicho:", result["cluster_predicho"])
+    st.write("Probabilidad:", result["probability"])  # Asegúrate de que este campo esté disponible en la respuesta del servidor FastAPI
 else:
     st.error("Error al realizar la predicción. Inténtalo de nuevo más tarde.")

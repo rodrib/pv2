@@ -4,8 +4,6 @@ import requests
 # Define la URL del servidor FastAPI
 API_URL = "https://backpv2-18.onrender.com/api/prediccion_cluster"
 
-
-
 # Título y descripción de la aplicación Streamlit
 st.title("Predicción de Cluster")
 st.write("Ingrese los datos para predecir el cluster:")

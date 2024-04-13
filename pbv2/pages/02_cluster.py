@@ -15,7 +15,7 @@ dx1 = st.number_input("Ingrese el valor DX1:", step=1, value=0)
 # Botón para calcular la correlación
 if st.button("Calcular Correlación"):
     # Realizar solicitud HTTP GET al servidor FastAPI con los datos ingresados por el usuario
-    url = "https://backpv3-4.onrender.com/api/correlacion"
+    url = "https://backpv3.onrender.com/api/correlacion"
     params = {"EDAD": edad, "DX1": dx1}
     response = requests.get(url, params=params)
     

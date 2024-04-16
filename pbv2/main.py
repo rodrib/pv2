@@ -25,8 +25,6 @@ def obtener_datos_desde_backend():
 # Llamamos a la función para obtener los datos del DataFrame desde el backend
 df = obtener_datos_desde_backend()
 
-
-
 # Si se obtienen los datos correctamente, mostrarlos en la aplicación de Streamlit
 #if df is not None:
 #    st.write(df)

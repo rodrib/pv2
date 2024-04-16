@@ -22,6 +22,8 @@ def obtener_datos_desde_backend():
         st.error("Error al conectarse al backend: " + str(e))
         return None
 
+
+#df = pd.read_csv("pbv2\df_dumies.csv")
 # Llamamos a la función para obtener los datos del DataFrame desde el backend
 df = obtener_datos_desde_backend()
 

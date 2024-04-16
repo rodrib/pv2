@@ -213,3 +213,5 @@ if st.button("Hacer Predicción"):
         st.write(resultado_prediccion)
     else:
         st.error("Error al hacer la predicción")
+
+        

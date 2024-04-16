@@ -88,7 +88,7 @@ import matplotlib.pyplot as plt
 st.title('Comparacion de datos')
 
 # Definir las columnas permitidas
-columnas_permitidas = ['GRUPO', 'ETNIA', 'EDAD', 'DX1', 'nombre-genes', 'ID', 'Germline Classification']
+columnas_permitidas = ['GRUPO', 'ETNIA', 'EDAD', 'nombre-genes', 'Germline Classification']
 
 # Crear dos widgets de selección para que el usuario elija las dos columnas
 columna_agrupacion_1 = st.selectbox('Selecciona la primera columna para agrupar:', columnas_permitidas)

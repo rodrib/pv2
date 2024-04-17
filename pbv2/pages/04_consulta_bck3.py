@@ -10,7 +10,7 @@ variant_region = st.text_input("Ingrese la región variante (variant_region):")
 # Verificar si se ingresaron valores y realizar la búsqueda si es así
 if gene_name and variant_region:
     st.write(f"Realizando búsqueda en ClinVar para {gene_name} - {variant_region}...")
-    response = requests.get(f"http://localhost:8000/api/clinvar_search?gene_name={gene_name}&variant_region={variant_region}")
+    response = requests.get(f"https://backpv3.onrender.com/api/clinvar_search?gene_name={gene_name}&variant_region={variant_region}")
     if response.status_code == 200:
         resultados = response.json()
         st.write("Resultados:")
